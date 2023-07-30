@@ -29,7 +29,6 @@ const PreviousOrder = () => {
         <View
           style={{
             marginTop: 16,
-            width: 302,
             height: 95,
             borderRadius: 16,
             overflow: "hidden",

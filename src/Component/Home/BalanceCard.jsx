@@ -9,7 +9,6 @@ const BalanceCard = () => {
       style={{
         marginTop: 16,
         height: 200,
-        width: 302,
         borderRadius: 16,
         overflow: "hidden",
       }}
