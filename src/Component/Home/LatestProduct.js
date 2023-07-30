@@ -22,7 +22,7 @@ export default function LatestProduct() {
       <Text
         style={{
           color: "#3B97CB",
-          fontFamily: "Roboto",
+          fontFamily: "Roboto-Bold",
           fontSize: 16,
           fontStyle: "normal",
           fontWeight: 700,
