@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function DetailImage() {
+export default function DetailImage({ imageUrl }) {
   const navigation = useNavigation();
   return (
     <Surface elevation={3} style={{ ...styles.imageContainer }}>
       <ImageBackground
         source={{
-          uri: "https://images.unsplash.com/photo-1690232260627-bcd8d9352973?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=986&q=80",
+          uri: imageUrl,
         }}
         style={styles.imgBackground}
       >

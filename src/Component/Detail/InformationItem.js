@@ -1,7 +1,9 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-export default function InformationItem() {
+export default function InformationItem({ data }) {
+  const { created_at, category_id, description, id, name, price, sku } = data;
+
   return (
     <View
       style={{
@@ -27,7 +29,7 @@ export default function InformationItem() {
             fontSize: 14,
           }}
         >
-          Dry Clean
+          {sku}
         </Text>
       </View>
       <Text
@@ -38,7 +40,7 @@ export default function InformationItem() {
           color: "#3B97CB",
         }}
       >
-        T - Shirt
+        {name}
       </Text>
       <Text
         style={{
@@ -47,7 +49,7 @@ export default function InformationItem() {
           color: "#0099EE",
         }}
       >
-        $ 6.00/pc
+        {price}/pc
       </Text>
       <Text
         style={{
@@ -56,12 +58,7 @@ export default function InformationItem() {
           fontSize: 16,
         }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elit diam,
-        lobortis at auctor eu, tempus eget enim. Etiam ullamcorper risus ac diam
-        pulvinar, a auctor nunc sagittis. In euismod est est, ac pretium sem
-        egestas eget. Nunc mollis rutrum nisl lacinia convallis. Curabitur et
-        arcu eros. Proin eu tellus augue. Vestibulum auctor risus erat, et
-        tempor augue
+        {description}
       </Text>
     </View>
   );

@@ -1,14 +1,12 @@
 // In App.js in a new project
 
 import React, { useCallback, useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./src/Screen/HomeScreen";
-import DetailScreen from "./src/Screen/DetailScreen";
+
 import { PaperProvider } from "react-native-paper";
+import { Provider } from "react-redux";
 
 import { LogBox } from "react-native";
-import InvoiceScreen from "./src/Screen/InvoiceScreen";
 import { useFonts } from "expo-font";
 LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -16,6 +14,10 @@ LogBox.ignoreAllLogs(); //Ignore all log notifications
 const Stack = createNativeStackNavigator();
 
 import * as SplashScreen from "expo-splash-screen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Routes from "./src/routes";
+
+import store from "./src/redux";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -38,33 +40,13 @@ function App() {
   }, [onLayoutRootView]);
 
   return (
-    <NavigationContainer>
+    <SafeAreaProvider>
       <PaperProvider>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            options={{
-              headerShown: false,
-            }}
-            component={HomeScreen}
-          />
-          <Stack.Screen
-            name="Detail"
-            options={{
-              headerShown: false,
-            }}
-            component={DetailScreen}
-          />
-          <Stack.Screen
-            name="Invoice"
-            options={{
-              headerShown: false,
-            }}
-            component={InvoiceScreen}
-          />
-        </Stack.Navigator>
+        <Provider store={store}>
+          <Routes />
+        </Provider>
       </PaperProvider>
-    </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
