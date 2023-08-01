@@ -7,6 +7,7 @@ import DetailScreen from "../Screen/DetailScreen";
 import InvoiceScreen from "../Screen/InvoiceScreen";
 import LoginScreen from "../Screen/LoginScreen";
 import { useSelector } from "react-redux";
+import AllProduct from "../Screen/AllProduct";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,29 +23,41 @@ export default function Routes() {
         }}
       >
         {auth ? (
-          <Stack.Group>
-            <Stack.Screen
-              name="Home"
-              options={{
-                headerShown: false,
-              }}
-              component={HomeScreen}
-            />
-            <Stack.Screen
-              name="Detail"
-              options={{
-                headerShown: false,
-              }}
-              component={DetailScreen}
-            />
-            <Stack.Screen
-              name="Invoice"
-              options={{
-                headerShown: false,
-              }}
-              component={InvoiceScreen}
-            />
-          </Stack.Group>
+          <>
+            <Stack.Group>
+              <Stack.Screen
+                name="Home"
+                options={{
+                  headerShown: false,
+                }}
+                component={HomeScreen}
+              />
+              <Stack.Screen
+                name="Detail"
+                options={{
+                  headerShown: false,
+                }}
+                component={DetailScreen}
+              />
+              <Stack.Screen
+                name="Invoice"
+                options={{
+                  headerShown: false,
+                }}
+                component={InvoiceScreen}
+              />
+            </Stack.Group>
+            <Stack.Group>
+              <Stack.Screen
+                options={{
+                  headerShown: true,
+                  title: "All Product",
+                }}
+                name="AllProduct"
+                component={AllProduct}
+              />
+            </Stack.Group>
+          </>
         ) : (
           <Stack.Screen name="Login" component={LoginScreen} />
         )}

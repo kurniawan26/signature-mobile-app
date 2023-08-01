@@ -108,10 +108,9 @@ const api = (() => {
 
     const responseJson = await response.json();
 
-    console.log(responseJson);
-
     const { response: result } = responseJson;
 
+    console.log(result);
     return result;
   }
 
